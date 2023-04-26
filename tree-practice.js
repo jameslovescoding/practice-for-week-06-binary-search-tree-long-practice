@@ -79,6 +79,31 @@ function findMinBT (rootNode) {
 
 function findMaxBT (rootNode) {
   // Your code here
+  if (!rootNode) {
+    return null
+  }
+
+  let stack = []
+  let nums = []
+  stack.push(rootNode)
+
+  while (stack.length > 0) {
+    let node = stack.pop()
+    if (node) {
+      nums.push(node.val)
+      stack.push(node.left)
+      stack.push(node.right)
+    }
+  }
+  let max = nums[0]
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > max) {
+      max = nums[i]
+    }
+  }
+
+  return max
 }
 
 function getHeight (rootNode) {
