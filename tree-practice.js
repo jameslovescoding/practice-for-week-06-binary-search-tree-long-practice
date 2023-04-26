@@ -172,6 +172,35 @@ function countNodes (rootNode) {
 
 function getParentNode (rootNode, target) {
   // Your code here
+  if (!rootNode) {
+    return undefined
+  }
+
+  if (rootNode.val === target) {
+    return null
+  }
+
+  let queue = []
+  let parents = []
+  queue.push(rootNode)
+  parents.push(null)
+
+  while (queue.length > 0) {
+    let node = queue.shift()
+    let parentNode = parents.shift()
+    if (node) {
+      if(node.val === target) {
+        return parentNode
+      }
+      else {
+        queue.push(node.left)
+        queue.push(node.right)
+        parents.push(node)
+        parents.push(node)
+      }
+    }
+  }
+  return undefined
 }
 
 function inOrderPredecessor (rootNode, target) {
