@@ -28,6 +28,53 @@ function findMaxBST (rootNode) {
 
 function findMinBT (rootNode) {
   // Your code here
+  if (!rootNode) {
+    return null;
+  }
+  let min = rootNode.val;
+  let arr = [];
+  function traversal(rootNode) {
+    if (!rootNode) {
+      return
+    }
+    // if (rootNode.val < min) {
+    //   min = rootNode.val;
+    // }
+    arr.push(rootNode.val);
+    traversal(rootNode.left);
+    traversal(rootNode.right);
+  }
+
+  traversal(rootNode);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+
+  return min;
+
+
+
+
+
+
+
+  // const queue = [];
+  // //console.log(rootNode);
+  // while (rootNode) {
+  //   queue.push(rootNode.val);
+  //   rootNode = rootNode.left;
+  // }
+  // let min = null;
+  // let ans;
+  // for (let i = 0; i < queue.length; i++) {
+  //   if (min === null || queue[i] < min) {
+  //     ans = queue[i];
+  //   }
+  // }
+  // console.log(ans);
 }
 
 function findMaxBT (rootNode) {
