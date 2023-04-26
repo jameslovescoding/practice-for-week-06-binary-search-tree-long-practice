@@ -132,6 +132,22 @@ function getHeight (rootNode) {
 
 function balancedTree (rootNode) {
   // Your code here
+  let balance = true
+  function height(node) {
+    if (node === null) {
+      return 0
+    }
+    let leftHeight = height(node.left)
+    let rightHeight = height(node.right)
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+      balance = false
+    }
+    let currentHeight = (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1
+    return currentHeight
+  }
+  height(rootNode)
+  return balance
+  
 }
 
 function countNodes (rootNode) {
