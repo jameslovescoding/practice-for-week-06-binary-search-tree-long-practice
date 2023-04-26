@@ -205,6 +205,23 @@ function getParentNode (rootNode, target) {
 
 function inOrderPredecessor (rootNode, target) {
   // Your code here
+
+  if (rootNode.val === target) {
+    return null;
+  }
+  // let arr = [];
+  let queue = [];
+  queue.push(rootNode);
+  while (queue.length > 0) {
+    let node = queue.shift();
+    if (node) {
+
+      // inOrderPredecessor(node.left, target);
+      // // arr.push(rootNode.val);
+      // inOrderPredecessor(node.right, target);
+    }
+  }
+  console.log(arr);
 }
 
 function deleteNodeBST(rootNode, target) {
