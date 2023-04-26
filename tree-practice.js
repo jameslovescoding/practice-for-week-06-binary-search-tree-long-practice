@@ -108,6 +108,26 @@ function findMaxBT (rootNode) {
 
 function getHeight (rootNode) {
   // Your code here
+  if (!rootNode) {
+    return -1;
+  }
+  let queue = [];
+  let height = -1;
+  queue.push(rootNode);
+  while (queue.length > 0) {
+    height++;
+    let nextQueue = [];
+    for (let node of queue) {
+      if (node.left) {
+        nextQueue.push(node.left);
+      }
+      if (node.right) {
+        nextQueue.push(node.right);
+      }
+    }
+    queue = nextQueue;
+  }
+  return height;
 }
 
 function balancedTree (rootNode) {
